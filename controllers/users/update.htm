@@ -36,7 +36,7 @@
                         <?= e(trans('backend::lang.form.save_and_close')) ?>
                     </button>
                     <span class="btn-text">
-                        <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('backend/users') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                        <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('leocavalcante/backendusertree/users') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                     </span>
                     <button
                         type="button"
@@ -67,6 +67,6 @@
     </div>
     <div class="padded-container">
         <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-        <p><a href="<?= Backend::url('backend/users') ?>" class="btn btn-default"><?= e(trans('backend::lang.user.return')) ?></a></p>
+        <p><a href="<?= Backend::url('leocavalcante/backendusertree/users') ?>" class="btn btn-default"><?= e(trans('backend::lang.user.return')) ?></a></p>
     </div>
 <?php endif ?>
