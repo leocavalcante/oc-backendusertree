@@ -7,7 +7,7 @@ You can make backend users create backend user children and later restrict lists
 
 You will be able, for example, to create Chief Editors and Editors to your [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) where Chief Editors can create Editors and see their posts, but without seeing their siblings posts or siblings Editors posts.
 
-This can be used for whatever Model you what to just applying to `listExtendQueryBefore` the following code:
+This can be user for whatever Model you want. Just apply de following code to the `listExtendQueryBefor`.
 
 ```php
 $query->whereIn('user_id', $this->user->getAllChildrenIdList(););
