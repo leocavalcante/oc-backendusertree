@@ -5,7 +5,7 @@ You can make backend users create backend user children and later restrict lists
 
 ## Why?
 
-You will be able, for example, to create Chief Editors and Editors to your [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) where Chief Editors can create Editors and see their posts, but with seeing their siblings posts or siblings Editors posts.
+You will be able, for example, to create Chief Editors and Editors to your [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) where Chief Editors can create Editors and see their posts, but without seeing their siblings posts or siblings Editors posts.
 
 This can be used for whatever Model you what to just applying to `listExtendQueryBefore` the following code:
 
@@ -26,4 +26,4 @@ or
 $model->user = $this->user
 ```
 
-Don't forget to add `belongsTo` `user` equals to `Backend\Models\User` in the models that needs ownership.
+Don't forget to add `belongsTo` `user` equals to `Backend\Models\User` in the models that needs ownership. Basic Eloquent relation.
