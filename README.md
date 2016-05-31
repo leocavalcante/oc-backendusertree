@@ -1,29 +1,28 @@
 # Backend User Tree
-Adds [SimpleTree trait](https://octobercms.com/docs/database/traits#simple-tree) functionality to backend users.
-
-You can make backend users create backend user children and later restrict lists to display only what belongs to logged user children.
+Adds [SimpleTree trait](https://octobercms.com/docs/database/traits#simple-tree) functionality to backend users (administrators) thought a Proxy model.
 
 ## Why?
 
-You will be able, for example, to create Chief Editors and Editors to your [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) where Chief Editors can create Editors and see their posts, but without seeing their siblings posts or siblings Editors posts.
+You will be able, for example, to create levels of administrators like **Chief Editors** and **Editors** to your [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog)
+where **Chief Editors** can create **Editors** and see their posts as their childrens posts, but without seeing their siblings posts or siblings Editors posts.
 
-This can be user for whatever Model you want. Just apply de following code to the `listExtendQueryBefor`.
+This can be user for whatever [Model](http://octobercms.com/docs/database/model) you want. Just applying the following code to `listExtendQueryBefore` hook:
 
 ```php
 $query->whereIn('user_id', $this->user->getAllChildrenIdList(););
 ```
 
 Where `user_id` is the foreign key on the model to represent the user who created it.
-This can be archived using `beforeSave` and adding the current logged in user to the model:
+This can be archived using `beforeSave` hook, adding the current logged in user to the model:
 
 ```php
 $model->user = BackendAuth::getUser();
+// or
+$model->user = $this->user;
 ```
 
-or
+Don't forget to add `user` to `belongsTo` property equals to `Backend\Models\User` in the models that needs ownership. It's a basic Eloquent relation.
 
-```php
-$model->user = $this->user
-```
+## Permissions
 
-Don't forget to add `belongsTo` `user` equals to `Backend\Models\User` in the models that needs ownership. Basic Eloquent relation.
+Users will be able to define permissions to their children based on their own permissions.
