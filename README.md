@@ -1,5 +1,5 @@
 # Backend User Tree
-Adds SimpleTree trait functionality to backend users.
+Adds [SimpleTree trait](https://octobercms.com/docs/database/traits#simple-tree) functionality to backend users.
 
 You can make backend users create backend user children and later restrict lists to display only what belongs to logged user children.
 
