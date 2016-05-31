@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: backend::lang.user.name
+form: ~/plugins/leocavalcante/backendusertree/controllers/users/fields.yaml
+modelClass: Backend\Models\User
+defaultRedirect: leocavalcante/backendusertree/users
+
+create:
+    redirect: leocavalcante/backendusertree/users/update/:id
+    redirectClose: leocavalcante/backendusertree/users
+
+update:
+    redirect: leocavalcante/backendusertree/users
+    redirectClose: leocavalcante/backendusertree/users

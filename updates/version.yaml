@@ -1,0 +1,4 @@
+1.0.1: First version of BackendUserTree
+1.0.2:
+    - Creates proxies table
+    - create_proxies_table.php
