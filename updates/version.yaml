@@ -2,3 +2,4 @@
 1.0.2:
     - Creates proxies table
     - create_proxies_table.php
+1.0.3: "Fix Github issue #2"
