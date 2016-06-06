@@ -8,18 +8,15 @@ where **Chief Editors** can create **Editors** and see their posts as their chil
 
 This can be used for whatever [Model](http://octobercms.com/docs/database/model) you want. Just applying the following code to `listExtendQueryBefore` hook:
 
-```php
-$query->whereIn('user_id', $this->user->getAllChildrenIdList(););
-```
+
+    $query->whereIn('user_id', $this->user->getAllChildrenIdList());
 
 Where `user_id` is the foreign key on the model to represent the user who created it.
 This can be archived using `beforeSave` hook, adding the current logged in user to the model:
 
-```php
-$model->user = BackendAuth::getUser();
-// or
-$model->user = $this->user;
-```
+    $model->user = BackendAuth::getUser();
+    // or
+    $model->user = $this->user;
 
 Don't forget to add `user` to `belongsTo` property equals to `Backend\Models\User` in the models that needs ownership. It's a basic Eloquent relation.
 
