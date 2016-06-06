@@ -6,7 +6,7 @@ Adds [SimpleTree trait](https://octobercms.com/docs/database/traits#simple-tree)
 You will be able, for example, to create levels of administrators like **Chief Editors** and **Editors** to your [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog)
 where **Chief Editors** can create **Editors** and see their posts as their childrens posts, but without seeing their siblings posts or siblings Editors posts.
 
-This can be user for whatever [Model](http://octobercms.com/docs/database/model) you want. Just applying the following code to `listExtendQueryBefore` hook:
+This can be used for whatever [Model](http://octobercms.com/docs/database/model) you want. Just applying the following code to `listExtendQueryBefore` hook:
 
 ```php
 $query->whereIn('user_id', $this->user->getAllChildrenIdList(););
