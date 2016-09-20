@@ -26,11 +26,11 @@ class Users extends \Backend\Controllers\Users
     {
         parent::formExtendFields($form);
 
-        if (!$this->user->hasPermission('leocavalcante.backendusertree.manage_permissions')) {
+        if (!$this->user->hasAccess('leocavalcante.backendusertree.manage_permissions')) {
             $form->removeField('permissions');
         }
 
-        if (!$this->user->hasPermission('leocavalcante.backendusertree.manage_groups')) {
+        if (!$this->user->hasAccess('leocavalcante.backendusertree.manage_groups')) {
             $form->removeField('groups');
         }
     }
