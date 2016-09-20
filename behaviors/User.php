@@ -13,7 +13,9 @@ class User extends \October\Rain\Extension\ExtensionBase
 
     public function getAllChildrenIdList()
     {
-        return $this->model->proxy->getAllChildren()->lists('user_id');
+        if ($this->hasProxy()) {
+            return $this->model->proxy->getAllChildren()->lists('user_id');
+        }
     }
 
     public function getParent()
