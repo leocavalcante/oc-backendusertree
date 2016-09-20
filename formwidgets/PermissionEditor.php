@@ -10,16 +10,18 @@ class PermissionEditor extends \Backend\FormWidgets\PermissionEditor
 
         $user = BackendAuth::getUser();
         $permissions = array_keys($user->getMergedPermissions());
-
-        foreach ($this->vars['permissions'] as $key => &$tab) {
-            foreach ($tab as $_key => $permission) {
-                if (!in_array($permission->code, $permissions)) {
-                    unset($tab[$_key]);
+        
+        if(!$user->isSuperUser()) {
+            foreach ($this->vars['permissions'] as $key => &$tab) {
+                foreach ($tab as $_key => $permission) {
+                    if (!in_array($permission->code, $permissions)) {
+                        unset($tab[$_key]);
+                    }
                 }
-            }
-
-            if (empty($tab)) {
-                unset($this->vars['permissions'][$key]);
+    
+                if (empty($tab)) {
+                    unset($this->vars['permissions'][$key]);
+                }
             }
         }
 
