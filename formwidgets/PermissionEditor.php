@@ -9,7 +9,7 @@ class PermissionEditor extends \Backend\FormWidgets\PermissionEditor
         $this->prepareVars();
 
         $user = BackendAuth::getUser();
-        $permissions = array_keys($user->permissions);
+        $permissions = array_keys($user->getMergedPermissions());
 
         foreach ($this->vars['permissions'] as $key => &$tab) {
             foreach ($tab as $_key => $permission) {
